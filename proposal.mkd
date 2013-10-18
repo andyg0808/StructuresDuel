@@ -7,12 +7,19 @@ Duel of the Data Structures
 
 #Team information:
 
+-------------------------------------------------------------
 Team member's name  Discipline  STAT 312 or STAT 542 student?
 ------------------  ----------  -----------------------------
-Miguel Aguilar      Comp. Sci.  Yes
-Jose Chavez         Comp. Sci.  Yes
+**Project Contact:**
 Andrew Gilbert      Comp. Sci.  Yes
+
+Miguel Aguilar      Comp. Sci.  Yes
+
+Jose Chavez         Comp. Sci.  Yes
+
 Chris Opperwall     Comp. Sci.  Yes
+
+-------------------------------------------------------------
 
 #Objectives:
 
@@ -72,8 +79,8 @@ Find implementations of all data structures  8 Nov 2013
 
 Run tests                                    15 Nov 2013
 
-Analyse full study                           
+Analyse full study                           22 Nov 2013
 
-Create presentation
+Create presentation                          6 Dec 2013
 
 ---------------------------------------------------------------

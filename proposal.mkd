@@ -1,0 +1,16 @@
+% Team Project Proposal Assignment
+% Miguel Aguilar, Jose Chavez, Andrew Gilbert, and Chris Opperwall
+% 
+
+**Team name:** Duel of the Data Structures\\
+
+**Team information:**
+
+Team member's name  Discipline  STAT 312 or STAT 542 student?
+------------------  ----------  -----------------------------
+Miguel Aguilar      Comp. Sci.  Yes
+Jose Chavez         Comp. Sci.  Yes
+Andrew Gilbert      Comp. Sci.  Yes
+Chris Opperwall     Comp. Sci.  Yes
+
+

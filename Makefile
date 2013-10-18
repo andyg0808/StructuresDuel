@@ -6,4 +6,4 @@ clean:
 	rm proposal.pdf
 
 %.pdf: %.mkd
-	pandoc -o $@ $<
+	pandoc -Vgeometry:margin=1in -o $@ $<

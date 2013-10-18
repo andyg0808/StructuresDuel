@@ -1,10 +1,11 @@
 % Team Project Proposal Assignment
-% Miguel Aguilar, Jose Chavez, Andrew Gilbert, and Chris Opperwall
-% 
+% Miguel Aguilar; Jose Chavez; Andrew Gilbert; Chris Opperwall
 
-**Team name:** Duel of the Data Structures\\
+#Team name:
 
-**Team information:**
+Duel of the Data Structures
+
+#Team information:
 
 Team member's name  Discipline  STAT 312 or STAT 542 student?
 ------------------  ----------  -----------------------------
@@ -13,4 +14,66 @@ Jose Chavez         Comp. Sci.  Yes
 Andrew Gilbert      Comp. Sci.  Yes
 Chris Opperwall     Comp. Sci.  Yes
 
+#Objectives:
 
+To determine how the performance of various data structures is affected by
+various factors.
+
+#Response variable:
+
+The time taken to complete a set of operations on a data structure.
+
+#Experimental factors:
+
+---------------------------------------------------------------
+Factor            Levels
+---------------   ---------------------------------------------
+Number of items   $n$, $n^2$, $n^3$ or some other set of
+inserted          numbers
+
+Operation         Insert, retrieve, delete
+
+Data structure    Binary search tree, trie, hash table
+type
+
+---------------------------------------------------------------
+
+#Pilot study:
+
+For our pilot study, we would only look at the effect of operation and number
+of items on one data structure. We would also limit the operations to insert
+and delete, and the number of items to two values.
+
+#Experimental design plan:
+
+It should be easy to randomize the order of testing for the "number of items"
+factor and the "data structure type" factor.  The "operation" factor may be a
+harder proposition, as some of the operations depend on the prior completion of
+other operations (i.e., one cannot retrieve or delete an item that has not been
+inserted).
+
+
+#Key activities:
+
+---------------------------------------------------------------
+Activity                                     Completion Date
+-------------------------------------------- ------------------
+Design test framework                        25 Oct 2013
+
+Build test framework                         1 Nov 2013
+
+**Pilot study**                              1 Nov 2013
+
+Analyse pilot study                          6 Nov 2013
+
+Write team project update                    8 Nov 2013
+
+Find implementations of all data structures  8 Nov 2013
+
+Run tests                                    15 Nov 2013
+
+Analyse full study                           
+
+Create presentation
+
+---------------------------------------------------------------

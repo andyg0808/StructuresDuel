@@ -1,0 +1,3 @@
+[submodule "patricia-trie"]
+	path = patricia-trie
+	url = https://github.com/rkapsi/patricia-trie.git

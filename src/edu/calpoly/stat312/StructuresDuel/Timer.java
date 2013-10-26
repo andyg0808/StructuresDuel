@@ -3,19 +3,20 @@ package edu.calpoly.stat312.StructuresDuel;
 public class Timer {
 
 	private long startTime = 0;
-	private long stopTime = 0;
+	private long elapsed = 0;
 	boolean running = false;
 	private boolean run = false;
 
 	public long elapsedTime() {
 		if (!run) {
-			throw new RuntimeException(
-					"Attempt to get elapsed time from an unrun timer");
+			throw new UnrunTimerException();
 		}
+
 		if (running) {
-			return System.nanoTime() - startTime;
+			// If the timer's running then return a to-the-instant time
+			return elapsed + System.nanoTime() - startTime;
 		} else {
-			return stopTime - startTime;
+			return elapsed;
 		}
 	}
 
@@ -29,7 +30,7 @@ public class Timer {
 
 	public void stopTimer() {
 		// Set the stop time
-		stopTime = System.nanoTime();
+		elapsed += System.nanoTime() - startTime;
 		running = false;
 	}
 

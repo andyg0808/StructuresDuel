@@ -11,13 +11,13 @@ Duel of the Data Structures
 Team member's name  Discipline  STAT 312 or STAT 542 student?
 ------------------  ----------  -----------------------------
 **Project Contact:**
-Andrew Gilbert      Comp. Sci.  Yes
+Andrew Gilbert      Comp. Sci.  312
 
-Miguel Aguilar      Comp. Sci.  Yes
+Miguel Aguilar      Comp. Sci.  312
 
-Jose Chavez         Comp. Sci.  Yes
+Jose Chavez         Comp. Sci.  312
 
-Chris Opperwall     Comp. Sci.  Yes
+Chris Opperwall     Comp. Sci.  312
 
 -------------------------------------------------------------
 
@@ -36,7 +36,9 @@ The time taken to complete a set of operations on a data structure.
 Factor            Levels
 ---------------   ---------------------------------------------
 Number of items   $n$, $n^2$, $n^3$ or some other set of
-inserted          numbers
+inserted          numbers, to be determined empirically
+                  based on time taken for the various
+		  operations.
 
 Operation         Insert, retrieve, delete
 
@@ -53,12 +55,14 @@ and delete, and the number of items to two values.
 
 #Experimental design plan:
 
-It should be easy to randomize the order of testing for the "number of items"
-factor and the "data structure type" factor.  The "operation" factor may be a
-harder proposition, as some of the operations depend on the prior completion of
-other operations (i.e., one cannot retrieve or delete an item that has not been
-inserted).
-
+We plan to conduct a full-factorial experiment. It should be easy to randomize
+the order of testing for the "number of items" factor and the "data structure
+type" factor. The "operation" factor will be randomized in the usual way,
+which is possible because we will only be timing the actual cost of the
+operation of interest, not the cost of setting up the data structure as needed.
+Replicates will be run with different data sets each time, to attempt to gain a
+better understanding of how the structure behaves with a broad range of data
+values.
 
 #Key activities:
 

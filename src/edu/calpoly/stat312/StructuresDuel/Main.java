@@ -29,29 +29,14 @@ public class Main {
 		// Create consistent data structures to hold the data we'll be accessing
 		// This is to try to eliminate any time variations from the data
 		// structures used to hold the data
-		String[] keys = new String[block.size()];
-		{
-			int i = 0;
-			for (String key : block.keySet()) {
-				keys[i] = key;
-				i++;
-			}
-		}
+		String[] keys = block.keySet().toArray(new String[block.size()]);
 
 		String[] values = null;
 
 		if (o == Operation.INSERT) {
 			// If we're going to need the data, then go ahead and create an
 			// array of it
-			values = new String[keys.length];
-			{
-				// Copy all the values to the new array
-				int i = 0;
-				for (String value : block.values()) {
-					values[i] = value;
-					i++;
-				}
-			}
+			values = block.values().toArray(new String[keys.length]);
 		} else {
 			// Since we're not going to be putting the data into the data
 			// structure, just put it in right now.

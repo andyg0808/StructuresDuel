@@ -25,33 +25,48 @@ public class Main {
 		Map<String, String> testObj = getTestObj(t);
 		Timer timer = new Timer();
 
-		// Set up our data structure for retrieval or deletion
-		if (o != Operation.INSERT) {
+		// Create consistent data structures to hold the data we'll be accessing
+		// This is to try to eliminate any time variations from the data
+		// structures used to hold the data
+		ArrayList<String> keys = new ArrayList<>(block.keySet());
+
+ArrayList<String> values=null;
+
+		if (o == Operation.INSERT) {
+			// If we're going to need the data, then go ahead and create an
+			// array of it
+			 values= new ArrayList<>(block.values());
+		} else {
+			// Since we're not going to be putting the data into the data
+			// structure, just put it in right now.
 			testObj.putAll(block);
 		}
-		
-		// Create a consistent data structure to hold the data we'll be accessing
-		ArrayList<String> 
-		
 
 		switch (o) {
 		case INSERT:
-
 			timer.startTimer();
+			for(int i=0; i<keys.size(); i++){
+				testObj.put(keys.get(i), values.get(i));
+			}
 			timer.stopTimer();
 			return timer;
 
 		case RETRIEVE:
-
-			break;
+			timer.startTimer();
+			for(int i=0; i<keys.size(); i++){
+				testObj.get(keys.get(i));
+			}
+			timer.stopTimer();
+			return timer;
 
 		case DELETE:
-			break;
+			timer.startTimer();
+			timer.stopTimer();
+			return timer;
 
 		default:
-			break;
+			return null;
 		}
-		return 0;
 	}
 
 	private static Map<String, String> getTestObj(Type t) {

@@ -2,6 +2,7 @@ package edu.calpoly.stat312.StructuresDuel;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.HashMap;
 
@@ -28,14 +29,29 @@ public class Main {
 		// Create consistent data structures to hold the data we'll be accessing
 		// This is to try to eliminate any time variations from the data
 		// structures used to hold the data
-		ArrayList<String> keys = new ArrayList<>(block.keySet());
+		String[] keys = new String[block.size()];
+		{
+			int i = 0;
+			for (String key : block.keySet()) {
+				keys[i] = key;
+				i++;
+			}
+		}
 
-ArrayList<String> values=null;
+		String[] values = null;
 
 		if (o == Operation.INSERT) {
 			// If we're going to need the data, then go ahead and create an
 			// array of it
-			 values= new ArrayList<>(block.values());
+			values = new String[keys.length];
+			{
+				// Copy all the values to the new array
+				int i = 0;
+				for (String value : block.values()) {
+					values[i] = value;
+					i++;
+				}
+			}
 		} else {
 			// Since we're not going to be putting the data into the data
 			// structure, just put it in right now.
@@ -45,27 +61,30 @@ ArrayList<String> values=null;
 		switch (o) {
 		case INSERT:
 			timer.startTimer();
-			for(int i=0; i<keys.size(); i++){
-				testObj.put(keys.get(i), values.get(i));
+			for (int i = 0; i < keys.length; i++) {
+				testObj.put(keys[i], values[i]);
 			}
 			timer.stopTimer();
 			return timer;
 
 		case RETRIEVE:
 			timer.startTimer();
-			for(int i=0; i<keys.size(); i++){
-				testObj.get(keys.get(i));
+			for (int i = 0; i < keys.length; i++) {
+				testObj.get(keys[i]);
 			}
 			timer.stopTimer();
 			return timer;
 
 		case DELETE:
 			timer.startTimer();
+			for (int i = 0; i < keys.length; i++) {
+				testObj.remove(keys[i]);
+			}
 			timer.stopTimer();
 			return timer;
 
 		default:
-			return null;
+			throw new RuntimeException("Invalid operation");
 		}
 	}
 

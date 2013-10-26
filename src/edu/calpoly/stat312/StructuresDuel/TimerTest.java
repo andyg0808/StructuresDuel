@@ -1,9 +1,10 @@
 package edu.calpoly.stat312.StructuresDuel;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class TimerTest {
@@ -18,24 +19,51 @@ public class TimerTest {
 	public void testGetElapsedTime() {
 		t.startTimer();
 
-		// Waste a little time
-		System.out.print('l');
+		try {
+			Thread.sleep(10);
+		} catch (InterruptedException e) {
+			// If the sleep is interrupted, don't worry. We're just wanting to
+			// make the timer greater than 0
+		}
 
 		t.stopTimer();
 
-		// That print had better have taken time!
 		assertNotEquals(t.elapsedTime(), 0);
+	}
+
+	@Test
+	public void testMultipleRuns() {
+		long prev = 0;
+		// Start and stop the timer a bunch of times; it had better get bigger each time.
+		// This is to check that the timer does indeed gain time and not overwrite the last value.
+		for (int i = 0; i < 10; i++) {
+			t.startTimer();
+
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				// If the sleep is interrupted, don't worry. We're just wanting to make the
+				// timer greater than 0
+			}
+
+			t.stopTimer();
+
+			assertTrue(t.elapsedTime() > prev);
+			prev = t.elapsedTime();
+		}
 	}
 
 	@Test
 	public void testStartTimer() {
 		t.startTimer();
 		assertTrue(t.isRunning());
-		assertNotEquals(t.elapsedTime(), 0); // The previous call should have
-												// taken time.
+
+		// The previous call should have taken time.
+		// This checks that the timer is running correctly
+		assertNotEquals(t.elapsedTime(), 0);
 	}
 
-	@Test(expected = RuntimeException.class)
+	@Test(expected = UnrunTimerException.class)
 	public void testReadUnstartedTimer() {
 		t.elapsedTime(); // This should blow up. That keeps us from reading an
 							// unstartd timer by acccident

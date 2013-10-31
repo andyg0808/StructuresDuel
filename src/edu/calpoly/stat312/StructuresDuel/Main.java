@@ -20,35 +20,5 @@ public class Main {
 	 * Control the operation run on our structure - Feed data to our structures
 	 * in blocks & retrieve it in blocks
 	 */
-	//
-	// private static final List<String> wordlist = new ArrayList<>();
-	// private static final List<String> sentencelist = new ArrayList<>();
-	//
-	// static {
-	// /*
-	// * Set up the lists of words and sentences that should be fed to our
-	// * data structures.
-	// */
-	// try {
-	// LineReader reader = new LineReader(new FileReader("words"));
-	// for (String line : reader) {
-	// wordlist.add(line);
-	// }
-	//
-	// reader.close();
-	//
-	// reader = new LineReader(new FileReader("sentences"));
-	// for (String sentence : reader) {
-	// sentencelist.add(sentence);
-	// }
-	//
-	// reader.close();
-	//
-	// } catch (FileNotFoundException e) {
-	// throw new RuntimeException("Could not find data file.", e);
-	// } catch (IOException e) {
-	// throw new RuntimeException("Error with data file", e);
-	// }
-	// }
 
 }

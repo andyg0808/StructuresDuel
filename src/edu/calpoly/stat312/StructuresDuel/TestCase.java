@@ -415,10 +415,52 @@ public class TestCase {
 
 	@Override
 	public String toString() {
-		return "TestCase [id=" + id + ", type=" + type + ", op=" + op
-				+ ", keyType=" + keyType + ", valueType=" + valueType
-				+ ", dataCount=" + dataCount + ", data=" + data + ", nanoTime="
-				+ nanoTime + "]";
+		// Format:
+		// 24: INSERT 24 RANDOM keys with RANDOM values into TRIE in 12.37s
+		StringBuilder sb = new StringBuilder();
+		sb.append(id);
+		sb.append(": ");
+
+		sb.append(op.toString());
+		sb.append(' ');
+
+		if (data == null) {
+			sb.append(dataCount);
+			sb.append(' ');
+			sb.append(keyType);
+			sb.append(" keys with ");
+			sb.append(valueType);
+			sb.append(" values ");
+		} else {
+			sb.append(data.size());
+			sb.append(" data points ");
+		}
+		
+		switch(op){
+		case INSERT:
+			// INSERT into
+			sb.append("into ");
+			break;
+		case RETRIEVE:
+		case DELETE:
+			// RETRIEVE from
+			// DELETE from
+			sb.append("from ");
+			break;
+		}
+
+		sb.append(type);
+
+		if (hasRun()) {
+			sb.append(" in ");
+			sb.append(nanoTime * 1e-9);
+			sb.append('s');
+		}
+
+		return sb.toString();
 	}
 
+	public boolean hasRun() {
+		return nanoTime >= 0;
+	}
 }

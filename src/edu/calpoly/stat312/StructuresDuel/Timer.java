@@ -7,7 +7,11 @@ public class Timer {
 	boolean running = false;
 	private boolean run = false;
 
-	public long elapsedTime() {
+	/**
+	 * Return the elapsed time in nanoseconds. The caveats for System.nanoTime apply.
+	 * @return Elapsed time in nanoseconds.
+	 */
+	public long elapsedNanoTime() {
 		if (!run) {
 			throw new UnrunTimerException();
 		}

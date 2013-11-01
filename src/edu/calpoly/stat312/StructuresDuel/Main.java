@@ -10,7 +10,7 @@ public class Main {
 				DataType.RANDOM, 1000000);
 		Timer test = Tester.runTest(Type.BINARY_SEARCH_TREE, data,
 				Operation.INSERT);
-		System.out.println(test.elapsedTime() * 1e-9);
+		System.out.println(test.elapsedNanoTime() * 1e-9);
 	}
 
 	/*

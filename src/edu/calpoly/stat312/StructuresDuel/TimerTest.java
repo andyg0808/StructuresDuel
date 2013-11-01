@@ -28,7 +28,7 @@ public class TimerTest {
 
 		t.stopTimer();
 
-		assertNotEquals(t.elapsedTime(), 0);
+		assertNotEquals(t.elapsedNanoTime(), 0);
 	}
 
 	@Test
@@ -48,8 +48,8 @@ public class TimerTest {
 
 			t.stopTimer();
 
-			assertTrue(t.elapsedTime() > prev);
-			prev = t.elapsedTime();
+			assertTrue(t.elapsedNanoTime() > prev);
+			prev = t.elapsedNanoTime();
 		}
 	}
 
@@ -60,12 +60,12 @@ public class TimerTest {
 
 		// The previous call should have taken time.
 		// This checks that the timer is running correctly
-		assertNotEquals(t.elapsedTime(), 0);
+		assertNotEquals(t.elapsedNanoTime(), 0);
 	}
 
 	@Test(expected = UnrunTimerException.class)
 	public void testReadUnstartedTimer() {
-		t.elapsedTime(); // This should blow up. That keeps us from reading an
+		t.elapsedNanoTime(); // This should blow up. That keeps us from reading an
 							// unstartd timer by acccident
 	}
 

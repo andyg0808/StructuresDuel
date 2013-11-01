@@ -1,5 +1,6 @@
 package edu.calpoly.stat312.StructuresDuel;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -10,8 +11,6 @@ public class RandomData {
 	List<String> words;
 	List<String> sentences;
 	Random r;
-	
-	
 
 	public RandomData() {
 		r = new Random();
@@ -93,16 +92,36 @@ public class RandomData {
 					"Unknown DataType! Cannot generate data!");
 		}
 	}
-	
-	public List<Integer> getRandomList(int length){
-		ArrayList<Integer> list = new Arr
-		Collections.shuffle(list, rnd);
+
+	public List<Integer> randomList(int length) {
+		ArrayList<Integer> list = new ArrayList<>();
+		Collections.shuffle(list, r);
+		return list;
 	}
 
+	/**
+	 * Shuffles the list using Collections.shuffle and the randomness source for
+	 * this RandomData
+	 * 
+	 * @param list
+	 *            The list to shuffle
+	 */
+	public <T> void shuffle(List<T> list) {
+		Collections.shuffle(list, r);
+	}
+
+	/**
+	 * Choose a random sentence from the list provided
+	 * @return The sentence
+	 */
 	public String randomSentence() {
 		return sentences.get(r.nextInt(sentences.size()));
 	}
 
+	/**
+	 * Choose a random word from the list provided
+	 * @return The word
+	 */
 	public String randomWord() {
 		return words.get(r.nextInt(words.size()));
 	}

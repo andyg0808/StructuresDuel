@@ -257,17 +257,21 @@ public class TestCase {
 		switch (part) {
 		case TYPE:
 			to.type = from.type;
+			break;
 
 		case OPERATION:
 			to.op = from.op;
+			break;
 
 		case DATA:
 			to.data = from.data;
+			break;
 
 		case GENSETTINGS:
 			to.keyType = from.keyType;
 			to.valueType = from.valueType;
 			to.dataCount = from.dataCount;
+			break;
 		}
 
 		return;

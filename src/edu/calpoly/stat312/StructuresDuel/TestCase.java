@@ -54,6 +54,24 @@ public class TestCase {
 		currentID++;
 	}
 
+	public TestCase(Type type) {
+		this.type = type;
+	}
+
+	public TestCase(Operation op) {
+		this.op = op;
+	}
+
+	public TestCase(DataType keyType, DataType valueType, int dataCount) {
+		this.keyType = keyType;
+		this.valueType = valueType;
+		this.dataCount = dataCount;
+	}
+
+	public TestCase(Map<String, String> data) {
+		this.data = data;
+	}
+
 	/**
 	 * Run this test, and return the result value as a long. Tests can only be
 	 * run once, to preserve the one-write characteristics of the time value.

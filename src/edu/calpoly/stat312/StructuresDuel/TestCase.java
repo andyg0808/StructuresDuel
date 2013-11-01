@@ -409,4 +409,12 @@ public class TestCase {
 		return nanoTime;
 	}
 
+	@Override
+	public String toString() {
+		return "TestCase [id=" + id + ", type=" + type + ", op=" + op
+				+ ", keyType=" + keyType + ", valueType=" + valueType
+				+ ", dataCount=" + dataCount + ", data=" + data + ", nanoTime="
+				+ nanoTime + "]";
+	}
+
 }

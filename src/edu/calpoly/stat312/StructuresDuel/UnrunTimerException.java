@@ -2,6 +2,11 @@ package edu.calpoly.stat312.StructuresDuel;
 
 public class UnrunTimerException extends RuntimeException {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1218579219382969627L;
+
 	public UnrunTimerException() {
 		super();
 	}

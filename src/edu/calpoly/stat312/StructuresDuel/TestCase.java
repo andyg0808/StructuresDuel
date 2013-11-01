@@ -85,13 +85,19 @@ public class TestCase {
 			throw new IllegalOperationError("Cannot run test twice.");
 		}
 
+		Map<String, String> tempData;
+
 		if (data == null) {
 			// Generate random data
-			data = rand.getDataBlock(keyType, valueType, dataCount);
+			tempData = rand.getDataBlock(keyType, valueType, dataCount);
+		} else {
+			tempData = data;
 		}
 
 		// Run the test and get the result
-		nanoTime = Tester.runTest(type, data, op).elapsedNanoTime();
+		System.out.println(this);
+		nanoTime = Tester.runTest(type, tempData, op).elapsedNanoTime();
+		System.out.println(this);
 
 		return nanoTime;
 	}

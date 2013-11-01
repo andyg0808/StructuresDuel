@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.ardverk.collection.PatriciaTrie;
+import org.ardverk.collection.StringKeyAnalyzer;
 
 public class Tester {
 
@@ -69,7 +70,7 @@ public class Tester {
 			return new HashMap<>();
 
 		case TRIE:
-			return new PatriciaTrie<>();
+			return new PatriciaTrie<>(StringKeyAnalyzer.CHAR);
 
 		default:
 			throw new RuntimeException("Tried to get a non-extant type");

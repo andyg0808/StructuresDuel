@@ -1,9 +1,23 @@
 package edu.calpoly.stat312.StructuresDuel;
 
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.sound.sampled.DataLine;
+
+/**
+ * Represents a test that should be run. Also includes numerous class methods to
+ * handle building a full test suite.
+ * 
+ * All random data used comes from a single RandomData, and therefore should be
+ * possible to recreate using the same seed combined with the same method calls
+ * (see JavaDoc for Random).
+ * 
+ * @author Andrew Gilbert
+ * 
+ */
 public class TestCase {
 	private static long currentID = 0;
 	private static RandomData rand = new RandomData();
@@ -77,10 +91,14 @@ public class TestCase {
 	 * run once, to preserve the one-write characteristics of the time value.
 	 * Use duplicate() to get a fresh instance.
 	 * 
+	 * @param ps
+	 *            A PrintStream to write status updates to. Allows an easy way
+	 *            to show test run progress. If null, no output will be
+	 *            produced.
 	 * @return The time taken for this test in nanoseconds. The qualifications
 	 *         for Timer's elapsedNanoTime method apply.
 	 */
-	public long runTest() {
+	public long runTest(PrintStream ps) {
 		if (nanoTime >= 0) {
 			throw new IllegalOperationError("Cannot run test twice.");
 		}
@@ -95,11 +113,27 @@ public class TestCase {
 		}
 
 		// Run the test and get the result
-		System.out.println(this);
+		if (ps != null) {
+			ps.print(String.format("%8d %-8.8s %8d %-8.8s", getId(), getOp(),
+					getDataLength(), getType()));
+		}
 		nanoTime = Tester.runTest(type, tempData, op).elapsedNanoTime();
-		System.out.println(this);
+		if (ps != null) {
+			ps.println(String.format("\t%.2es", nanoTime*1e-9));
+		}
 
 		return nanoTime;
+	}
+
+	public int getDataLength() {
+		return data == null ? dataCount : data.size();
+	}
+
+	/**
+	 * See runTest(PrintStream)
+	 */
+	public long runTest() {
+		return runTest(null);
 	}
 
 	public TestCase duplicate() {
@@ -326,14 +360,19 @@ public class TestCase {
 	 *            The List to run tests from
 	 * @return A list containing all the result from the tests
 	 */
-	public static List<Long> runList(List<? extends TestCase> list) {
+	public static List<Long> runList(List<? extends TestCase> list,
+			PrintStream ps) {
 		List<Long> res = new ArrayList<>();
 
 		for (TestCase t : list) {
-			res.add(t.runTest());
+			res.add(t.runTest(ps));
 		}
 
 		return res;
+	}
+
+	public static List<Long> runList(List<? extends TestCase> list) {
+		return runList(list);
 	}
 
 	public static RandomData getRand() {
@@ -410,6 +449,12 @@ public class TestCase {
 		return id;
 	}
 
+	/**
+	 * Get the run time of this test instance in nanoseconds (see
+	 * Timer.elapsedNanoTime())
+	 * 
+	 * @return Time in nanoseconds
+	 */
 	public long getTime() {
 		if (nanoTime < 0) {
 			throw new UnrunTimerException(
@@ -441,8 +486,8 @@ public class TestCase {
 			sb.append(data.size());
 			sb.append(" data points ");
 		}
-		
-		switch(op){
+
+		switch (op) {
 		case INSERT:
 			// INSERT into
 			sb.append("into ");

@@ -9,6 +9,19 @@ import org.ardverk.collection.StringKeyAnalyzer;
 
 public class Tester {
 
+	/**
+	 * Runs a test specified by the arguments provided and returns a Timer that
+	 * has timed the crucial part of the specified Operation
+	 * 
+	 * @param t
+	 *            The type of data structure to test
+	 * @param block
+	 *            A block of data to use in the data structure during the test
+	 * @param o
+	 *            The operation to conduct on the data structure
+	 * @return A Timer that timed the relevant portion of this method to get a
+	 *         time for completion of the specified Operation
+	 */
 	public static Timer runTest(Type t, Map<String, String> block, Operation o) {
 		Map<String, String> testObj = getTestObj(t);
 		Timer timer = new Timer();

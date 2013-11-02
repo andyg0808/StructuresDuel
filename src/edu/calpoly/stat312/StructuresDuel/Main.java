@@ -1,7 +1,10 @@
 package edu.calpoly.stat312.StructuresDuel;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import edu.calpoly.stat312.StructuresDuel.TestCaseIO.CSV;
 
 public class Main {
 
@@ -41,6 +44,14 @@ public class Main {
 		// Run the tests
 		TestCase.runList(cases);
 
+		try {
+			CSV writer = new CSV("sample");
+			writer.writeAll(cases);
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
 	}
 	/*
 	 * What do we need to be able to do? - Run replicates (probably blocked on

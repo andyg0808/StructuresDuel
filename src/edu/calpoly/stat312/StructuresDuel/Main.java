@@ -36,14 +36,15 @@ public class Main {
 		cases = TestCase.cartesianProd(cases, count, TestCase.Part.GENSETTINGS);
 
 		// Generate a number of replicates of test cases
-		//cases = TestCase.replicate(cases, 10);
+		cases = TestCase.replicate(cases, 10);
 
 		// Randomize the test order
 		TestCase.shuffle(cases);
 
 		// Run the tests
-		TestCase.runList(cases);
-
+		TestCase.runList(cases, System.out);
+		
+		System.out.print("Writing CSV output...");
 		try {
 			CSV writer = new CSV("sample");
 			writer.writeAll(cases);
@@ -52,6 +53,7 @@ public class Main {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
+		System.out.println(" done.");
 	}
 	/*
 	 * What do we need to be able to do? - Run replicates (probably blocked on

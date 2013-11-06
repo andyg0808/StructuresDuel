@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import javax.sound.sampled.DataLine;
-
 /**
  * Represents a test that should be run. Also includes numerous class methods to
  * handle building a full test suite.
@@ -119,7 +117,7 @@ public class TestCase {
 		}
 		nanoTime = Tester.runTest(type, tempData, op).elapsedNanoTime();
 		if (ps != null) {
-			ps.println(String.format("\t%.2es", nanoTime*1e-9));
+			ps.println(String.format("\t%.2es", nanoTime * 1e-9));
 		}
 
 		return nanoTime;
@@ -158,7 +156,7 @@ public class TestCase {
 
 	public static List<TestCase> cartesianProd(List<TestCase> row,
 			List<TestCase> col) {
-		List<TestCase> prod = new ArrayList<>();
+		List<TestCase> prod = new ArrayList<TestCase>();
 
 		for (TestCase a : row) {
 			for (TestCase b : col) {
@@ -181,7 +179,7 @@ public class TestCase {
 	 */
 	public static List<TestCase> cartesianProd(List<TestCase> row,
 			Part rowPart, List<TestCase> col, Part colPart) {
-		List<TestCase> prod = new ArrayList<>();
+		List<TestCase> prod = new ArrayList<TestCase>();
 
 		for (TestCase r : row) {
 			for (TestCase c : col) {
@@ -204,7 +202,7 @@ public class TestCase {
 	 */
 	public static List<TestCase> cartesianProd(List<TestCase> main,
 			List<TestCase> by, Part byPart) {
-		List<TestCase> prod = new ArrayList<>();
+		List<TestCase> prod = new ArrayList<TestCase>();
 
 		for (TestCase aItem : main) {
 			for (TestCase bItem : by) {
@@ -329,7 +327,7 @@ public class TestCase {
 	 * @return The resulting list
 	 */
 	public static List<TestCase> replicate(List<TestCase> list, int times) {
-		List<TestCase> replicated = new ArrayList<>();
+		List<TestCase> replicated = new ArrayList<TestCase>();
 
 		for (TestCase item : list) {
 			// Add the number of duplicates requested
@@ -362,7 +360,7 @@ public class TestCase {
 	 */
 	public static List<Long> runList(List<? extends TestCase> list,
 			PrintStream ps) {
-		List<Long> res = new ArrayList<>();
+		List<Long> res = new ArrayList<Long>();
 
 		for (TestCase t : list) {
 			res.add(t.runTest(ps));

@@ -18,18 +18,6 @@ public class IllegalOperationError extends RuntimeException {
 	/**
 	 * @param message
 	 * @param cause
-	 * @param enableSuppression
-	 * @param writableStackTrace
-	 */
-	public IllegalOperationError(String message, Throwable cause,
-			boolean enableSuppression, boolean writableStackTrace) {
-		super(message, cause, enableSuppression, writableStackTrace);
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @param message
-	 * @param cause
 	 */
 	public IllegalOperationError(String message, Throwable cause) {
 		super(message, cause);

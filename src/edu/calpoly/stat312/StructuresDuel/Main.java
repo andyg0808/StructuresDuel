@@ -9,9 +9,9 @@ import edu.calpoly.stat312.StructuresDuel.TestCaseIO.CSV;
 public class Main {
 
 	public static void main(String[] args) {
-		List<TestCase> type = new ArrayList<>();
-		List<TestCase> operation = new ArrayList<>();
-		List<TestCase> count = new ArrayList<>();
+		List<TestCase> type = new ArrayList<TestCase>();
+		List<TestCase> operation = new ArrayList<TestCase>();
+		List<TestCase> count = new ArrayList<TestCase>();
 
 		// Base instance from which all count instances are derived
 		int[] sizes = { 100, 10000, 1000000 };

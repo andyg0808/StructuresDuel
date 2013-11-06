@@ -77,13 +77,13 @@ public class Tester {
 	private static Map<String, String> getTestObj(Type t) {
 		switch (t) {
 		case BINARY_SEARCH_TREE:
-			return new TreeMap<>();
+			return new TreeMap<String, String>();
 
 		case HASHTABLE:
-			return new HashMap<>();
+			return new HashMap<String, String>();
 
 		case TRIE:
-			return new PatriciaTrie<>(StringKeyAnalyzer.CHAR);
+			return new PatriciaTrie<String, String>(StringKeyAnalyzer.CHAR);
 
 		default:
 			throw new RuntimeException("Tried to get a non-extant type");

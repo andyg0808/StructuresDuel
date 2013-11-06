@@ -94,7 +94,7 @@ public class RandomData {
 	}
 
 	public List<Integer> randomList(int length) {
-		ArrayList<Integer> list = new ArrayList<>();
+		ArrayList<Integer> list = new ArrayList<Integer>();
 		Collections.shuffle(list, r);
 		return list;
 	}

@@ -8,8 +8,8 @@ import java.util.List;
 
 public class FileData {
 
-	private static final List<String> wordlist = new ArrayList<>();
-	private static final List<String> sentencelist = new ArrayList<>();
+	private static final List<String> wordlist = new ArrayList<String>();
+	private static final List<String> sentencelist = new ArrayList<String>();
 
 	static {
 		/*

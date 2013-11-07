@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.calpoly.stat312.StructuresDuel.TestCase.Part;
 import edu.calpoly.stat312.StructuresDuel.TestCaseIO.CSV;
 
 public class Main {
@@ -11,31 +12,32 @@ public class Main {
 	public static void main(String[] args) {
 		List<TestCase> type = new ArrayList<TestCase>();
 		List<TestCase> operation = new ArrayList<TestCase>();
-		List<TestCase> count = new ArrayList<TestCase>();
+		// Omitting counts for pilot study
+		// List<TestCase> count = new ArrayList<TestCase>();
 
 		// Base instance from which all count instances are derived
-		int[] sizes = { 100, 10000, 1000000 };
-		for (int i : sizes) {
-			count.add(new TestCase(DataType.RANDOM, DataType.RANDOM, i));
-		}
-
-		Operation[] ops = { Operation.INSERT, Operation.RETRIEVE,
-				Operation.DELETE };
+		// Chose INSERT and DELETE, since RETRIEVE will generally be part of
+		// them anyway
+		Operation[] ops = { Operation.INSERT, Operation.DELETE };
 		for (Operation o : ops) {
 			operation.add(new TestCase(o));
 		}
 
-		Type[] types = { Type.HASHTABLE, Type.BINARY_SEARCH_TREE, Type.TRIE };
+		// BST and TRIE as two factor levels
+		Type[] types = { Type.BINARY_SEARCH_TREE, Type.TRIE };
 		for (Type t : types) {
 			type.add(new TestCase(t));
 		}
 
-		// Generate a full-factorial regimen of test cases
-		List<TestCase> cases = TestCase.cartesianProd(type, TestCase.Part.TYPE,
-				operation, TestCase.Part.OPERATION);
-		cases = TestCase.cartesianProd(cases, count, TestCase.Part.GENSETTINGS);
+		// Create a basic TestCase array to work from.
+		List<TestCase> cases = TestCase.cartesianProd(type, TestCase.Part.TYPE, operation,
+				TestCase.Part.OPERATION);
+		
+		// Copy the value of GENSETTINGS from the new TestCase across all the other TestCases
+		cases = TestCase.mapPart(cases, new TestCase(DataType.RANDOM, DataType.RANDOM, 100000), Part.GENSETTINGS);
 
-		// Generate a number of replicates of test cases
+		// Generate a number of replicates of test cases.
+		// 10 specified by professor
 		cases = TestCase.replicate(cases, 10);
 
 		// Randomize the test order
@@ -43,10 +45,10 @@ public class Main {
 
 		// Run the tests
 		TestCase.runList(cases, System.out);
-		
+
 		System.out.print("Writing CSV output...");
 		try {
-			CSV writer = new CSV("sample");
+			CSV writer = new CSV("pilot_data.csv");
 			writer.writeAll(cases);
 			writer.close();
 		} catch (IOException e) {

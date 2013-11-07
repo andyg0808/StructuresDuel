@@ -214,6 +214,27 @@ public class TestCase {
 		return prod;
 	}
 
+	/**
+	 * 
+	 * This variant sets the value of fromPart for each of the items in main to that in from.
+	 * 
+	 * @param main
+	 * @param from
+	 * @param fromPart
+	 * @return
+	 */
+	public static List<TestCase> mapPart(List<TestCase> main,
+			TestCase from, Part fromPart) {
+		List<TestCase> prod = new ArrayList<TestCase>();
+
+		for (TestCase aItem : main) {
+			// combine always returns a new item
+			prod.add(combine(aItem, from, fromPart));
+		}
+
+		return prod;
+	}
+
 	private static TestCase combine(TestCase a, TestCase b) {
 		TestCase combined = new TestCase();
 

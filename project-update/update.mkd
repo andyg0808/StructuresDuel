@@ -110,7 +110,16 @@ roughly 5 million. Realizing that that represents a delta of 5 milliseconds,
 and that Java may or may not be measuring to nanoseconds anyway (in fact, it
 probably isn't), we decided to generate power analyses for effect sizes of
 1\ ms, 5\ ms, and 10\ ms. 1\ ms is 1/5th of the smallest observed delta, so it
-should be more than good enough to find most changes. 5\ ms is right near the smallest observed delta, which was between the less-meaningful means of BST overall and Trie overall. Since there's a known interaction, those means could probably be ignored.
+should be more than good enough to find most changes. 5\ ms is right near the
+smallest observed delta, which was between the less-meaningful means of BST
+overall and Trie overall. Since there's a known interaction, those means could
+probably be ignored anyway, and the smallest effect size among the interaction
+Tukey intervals was approximately 7 million, or 7 milliseconds. 10 million was
+just for good measure, since at that point it was larger than some of the
+observed mean deltas (e.g., the difference between the binary search tree
+insert and delete, which was roughly 7 million, and the difference between the
+binary search tree insertion and the trie insertion, which was roughly 8
+million.
 
 \begin{figure}
 \begin{center}

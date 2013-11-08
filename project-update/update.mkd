@@ -93,8 +93,7 @@ project and begin analysis.
 \label{fig:dotplot}
 \end{figure}
 
-Our power analysis (see figure \ref{fig:powercurve} and the Minitab output in
-figure \ref{out:poweroutput}) indicates that we should need 224 repetitions to
+Our power analysis (see figure \ref{fig:powercurve} and the Minitab output on page \pageref{out:poweroutput}) indicates that we should need 224 repetitions to
 achieve a resolution of 1ms with a target power of 0.95. A run of our program
 to achieve that many repetitions with all the factors and levels required
 67.19994490468333 minutes,^[Note: This statistic, like 68.738247% of other

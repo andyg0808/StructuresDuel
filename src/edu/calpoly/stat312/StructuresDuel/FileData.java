@@ -1,6 +1,6 @@
 package edu.calpoly.stat312.StructuresDuel;
 
-import java.io.FileNotFoundException;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,33 +8,39 @@ import java.util.List;
 
 public class FileData {
 
-	private static final List<String> wordlist = new ArrayList<String>();
-	private static final List<String> sentencelist = new ArrayList<String>();
+	private final List<String> wordlist = new ArrayList<String>();
+	private final List<String> sentencelist = new ArrayList<String>();
 
-	static {
+	public FileData(File wordFile, File sentenceFile) throws IOException {
 		/*
 		 * Set up the lists of words and sentences that should be fed to our
 		 * data structures.
 		 */
 		try {
-			LineReader reader = new LineReader(new FileReader("words"));
+			LineReader reader = new LineReader(new FileReader(wordFile));
 			for (String line : reader) {
 				wordlist.add(line);
 			}
 
 			reader.close();
 
-			reader = new LineReader(new FileReader("sentences"));
+			reader = new LineReader(new FileReader(sentenceFile));
 			for (String sentence : reader) {
 				sentencelist.add(sentence);
 			}
 
 			reader.close();
 
-		} catch (FileNotFoundException e) {
-			throw new RuntimeException("Could not find data file.", e);
 		} catch (IOException e) {
-			throw new RuntimeException("Error with data file", e);
+			throw new IOException("Error with data file", e);
 		}
+	}
+
+	public List<String> getWordlist() {
+		return wordlist;
+	}
+
+	public List<String> getSentencelist() {
+		return sentencelist;
 	}
 }

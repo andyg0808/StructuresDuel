@@ -1,9 +1,12 @@
-package edu.calpoly.stat312.StructuresDuel;
+package edu.calpoly.stat312.StructuresDuel.StructureTest;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import edu.calpoly.stat312.StructuresDuel.Util.RandomData;
+import edu.calpoly.stat312.StructuresDuel.Util.UnrunTimerException;
 
 /**
  * Represents a test that should be run. Also includes numerous class methods to
@@ -115,7 +118,7 @@ public class TestCase {
 			ps.print(String.format("%8d %-8.8s %8d %-8.8s", getId(), getOp(),
 					getDataLength(), getType()));
 		}
-		nanoTime = Tester.runTest(type, tempData, op).elapsedNanoTime();
+		nanoTime = TestRunner.runTest(type, tempData, op).elapsedNanoTime();
 		if (ps != null) {
 			ps.println(String.format("\t%.2es", nanoTime * 1e-9));
 		}

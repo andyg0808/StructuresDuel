@@ -4,7 +4,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.calpoly.stat312.StructuresDuel.TestCaseIO.CSV;
+import edu.calpoly.stat312.StructuresDuel.StructureTest.DataType;
+import edu.calpoly.stat312.StructuresDuel.StructureTest.Operation;
+import edu.calpoly.stat312.StructuresDuel.StructureTest.TestCase;
+import edu.calpoly.stat312.StructuresDuel.StructureTest.Type;
+import edu.calpoly.stat312.StructuresDuel.StructureTest.IO.CSV;
 
 public class Main {
 

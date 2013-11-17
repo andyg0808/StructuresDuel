@@ -1,4 +1,4 @@
-package edu.calpoly.stat312.StructuresDuel;
+package edu.calpoly.stat312.StructuresDuel.StructureTest;
 
 public enum Type {
 HASHTABLE,

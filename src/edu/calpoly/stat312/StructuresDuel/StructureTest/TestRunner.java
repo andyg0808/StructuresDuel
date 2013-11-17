@@ -1,4 +1,4 @@
-package edu.calpoly.stat312.StructuresDuel;
+package edu.calpoly.stat312.StructuresDuel.StructureTest;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,7 +7,9 @@ import java.util.TreeMap;
 import org.ardverk.collection.PatriciaTrie;
 import org.ardverk.collection.StringKeyAnalyzer;
 
-public class Tester {
+import edu.calpoly.stat312.StructuresDuel.Util.Timer;
+
+public class TestRunner {
 
 	/**
 	 * Runs a test specified by the arguments provided and returns a Timer that

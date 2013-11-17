@@ -1,6 +1,6 @@
-package edu.calpoly.stat312.StructuresDuel.TestCaseIO;
+package edu.calpoly.stat312.StructuresDuel.StructureTest.IO;
 
-import edu.calpoly.stat312.StructuresDuel.TestCase;
+import edu.calpoly.stat312.StructuresDuel.StructureTest.TestCase;
 
 public class TestBean {
 	public TestBean(TestCase source) {

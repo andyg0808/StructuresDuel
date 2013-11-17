@@ -1,4 +1,4 @@
-package edu.calpoly.stat312.StructuresDuel.TestCaseIO;
+package edu.calpoly.stat312.StructuresDuel.StructureTest.IO;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.io.ICsvBeanWriter;
 import org.supercsv.prefs.CsvPreference;
 
-import edu.calpoly.stat312.StructuresDuel.TestCase;
+import edu.calpoly.stat312.StructuresDuel.StructureTest.TestCase;
 
 public class CSV implements TestCaseWriter {
 

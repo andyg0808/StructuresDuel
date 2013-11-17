@@ -1,9 +1,9 @@
-package edu.calpoly.stat312.StructuresDuel.TestCaseIO;
+package edu.calpoly.stat312.StructuresDuel.StructureTest.IO;
 
 import java.io.IOException;
 import java.util.List;
 
-import edu.calpoly.stat312.StructuresDuel.TestCase;
+import edu.calpoly.stat312.StructuresDuel.StructureTest.TestCase;
 
 public interface TestCaseWriter {
 	/**

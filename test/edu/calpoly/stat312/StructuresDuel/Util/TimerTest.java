@@ -7,6 +7,9 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import edu.calpoly.stat312.StructuresDuel.Util.Timer;
+import edu.calpoly.stat312.StructuresDuel.Util.UnrunTimerException;
+
 public class TimerTest {
 	private Timer t;
 

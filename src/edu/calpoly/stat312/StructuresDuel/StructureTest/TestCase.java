@@ -373,7 +373,7 @@ public class TestCase {
 	}
 
 	public static List<Long> runList(List<? extends TestCase> list) {
-		return runList(list);
+		return runList(list, null);
 	}
 
 	public static RandomData getRand() {

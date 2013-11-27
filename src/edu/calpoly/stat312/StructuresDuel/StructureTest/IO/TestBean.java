@@ -61,6 +61,6 @@ public class TestBean {
 	}
 
 	public static String[] getHeader() {
-		return header;
+		return header.clone();
 	}
 }

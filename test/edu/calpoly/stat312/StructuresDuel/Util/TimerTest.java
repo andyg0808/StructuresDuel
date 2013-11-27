@@ -1,4 +1,4 @@
-package edu.calpoly.stat312.StructuresDuel;
+package edu.calpoly.stat312.StructuresDuel.Util;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;

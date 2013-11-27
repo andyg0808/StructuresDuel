@@ -13,7 +13,7 @@ public interface TestCaseWriter {
 	 *            The TestCase to write
 	 * @throws IOException
 	 */
-	public void write(TestCase t) throws IOException;
+	void write(TestCase t) throws IOException;
 
 	/**
 	 * Write all the TestCases in the list to the destination for this
@@ -23,5 +23,5 @@ public interface TestCaseWriter {
 	 *            The List of TestCases to write
 	 * @throws IOException
 	 */
-	public void writeAll(List<? extends TestCase> l) throws IOException;
+	void writeAll(List<? extends TestCase> l) throws IOException;
 }

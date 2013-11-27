@@ -1,6 +1,5 @@
 package edu.calpoly.stat312.StructuresDuel.Util;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -93,12 +92,6 @@ public class RandomData {
 			throw new RuntimeException(
 					"Unknown DataType! Cannot generate data!");
 		}
-	}
-
-	public List<Integer> randomList(int length) {
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		Collections.shuffle(list, r);
-		return list;
 	}
 
 	/**

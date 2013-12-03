@@ -1,7 +1,9 @@
 package edu.calpoly.stat312.StructuresDuel;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import edu.calpoly.stat312.StructuresDuel.StructureTest.DataType;
@@ -12,7 +14,20 @@ import edu.calpoly.stat312.StructuresDuel.StructureTest.IO.CSV;
 
 public class Main {
 
+	private static final SimpleDateFormat FILE_DATE = new SimpleDateFormat(
+			"d-MMM-y:H:m:s:S");
+
 	public static void main(String[] args) {
+		String name;
+
+		// Select a name for the output file
+		if (args.length > 0) {
+			name = args[0];
+		} else {
+			// Create a new name based on the current time
+			name = "output-" + FILE_DATE.format(new Date());
+		}
+
 		List<TestCase> type = new ArrayList<TestCase>();
 		List<TestCase> operation = new ArrayList<TestCase>();
 		List<TestCase> count = new ArrayList<TestCase>();
@@ -47,17 +62,18 @@ public class Main {
 
 		// Run the tests
 		TestCase.runList(cases, System.out);
-		
-		System.out.print("Writing CSV output...");
+
+		System.out.println("Writing CSV output...");
 		try {
-			CSV writer = new CSV("sample");
+			CSV writer = new CSV(name);
 			writer.writeAll(cases);
 			writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
-		System.out.println(" done.");
+		System.out.println("Data saved to " + name);
+		System.out.println("Done.");
 	}
 	/*
 	 * What do we need to be able to do? - Run replicates (probably blocked on

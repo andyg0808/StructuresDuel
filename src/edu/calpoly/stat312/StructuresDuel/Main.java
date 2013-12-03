@@ -33,7 +33,7 @@ public class Main {
 		List<TestCase> count = new ArrayList<TestCase>();
 
 		// Base instance from which all count instances are derived
-		int[] sizes = { 100, 10000, 1000000 };
+		int[] sizes = { 100000, 500000, 1000000 };
 		for (int i : sizes) {
 			count.add(new TestCase(DataType.RANDOM, DataType.RANDOM, i));
 		}
@@ -55,7 +55,7 @@ public class Main {
 		cases = TestCase.cartesianProd(cases, count, TestCase.Part.GENSETTINGS);
 
 		// Generate a number of replicates of test cases
-		cases = TestCase.replicate(cases, 10);
+		cases = TestCase.replicate(cases, 250);
 
 		// Randomize the test order
 		TestCase.shuffle(cases);
